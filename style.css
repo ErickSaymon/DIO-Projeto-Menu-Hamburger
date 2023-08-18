@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
+
+body {
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-family: 'Caveat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+
+.headerWrapper{
+    border: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(-45deg, #0F2027, #203A43, #2C5364);
+    background-size: 300% 300%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: backgroundTransition 8s ease-in-out infinite;
+    position: relative;
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.socialMedia {
+    margin-top: 1rem;
+    display: flex;
+}
+
+.socialMedia a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    padding: 1rem 4rem;
+    border: 1px solid white;
+    min-width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s cubic-bezier(0.55, 0.025, 0.675, 0.97);
+}
+
+.socialMedia a:hover {
+    color: #2C5364;
+    background-color: #ffffff;
+}
+
+@keyframes backgroundTransition {
+    0%{
+        background-position: 0% 80%;
+    }
+    50%{
+        background-position: 80% 100%;
+    }
+    100%{
+        background-position: 0% 90%;
+    }
+} 
+
+/* MENU HAMBURGER */
+
+.checkboxContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: 400ms ease-in-out 0.05s;
+}
+
+.checkbox .trace {
+    width: 35px;
+    height: 2px;
+    left: 15px;
+    background-color: white;
+    position: absolute;
+    border-radius: 4px;
+    transition: 0.5s ease-in-out;
+}
+
+.checkbox .trace:nth-child(1) {
+    top: 26px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(2) {
+    top: 41px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(3) {
+    top: 56px;
+    transform: rotate(0);
+}
+
+#toggle {
+    display: none;
+}
+
+/* MENU */
+
+.menu {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: black;
+    opacity: 20%;
+    height: 100%;
+    width: 0px;
+    z-index: -1;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menuItens {
+    position: relative;
+    top: 50vh;
+    right: 0px;
+    width: 0;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 100;
+    visibility: visible;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menuItens ul {
+    list-style-type: none;
+}
+
+.menuItens ul li a {
+    margin: 10px 0;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 40px;
+    justify-content: center;
+}
+
+/* MENU ANIMATION */
+
+#toggle:checked + .checkbox{
+    right: 220px;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(1) {
+    transform: rotate(45deg);
+    top: 41px;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(2) {
+    width: 25px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 41px;
+}
+
+#toggle:checked + .checkbox{
+    background-color: transparent;
+}
+
+#toggle:checked ~ .menu {
+    visibility: visible;
+    background: black;
+    opacity: 20%;
+    box-shadow: 5px white;
+    width: 300px;
+    z-index: 1;
+}
+
+#toggle:checked ~ .menuItens {
+    visibility: visible;
+    opacity: 1;
+    width: 300px;
+}
+
+/* HOME */
+
+.container {
+    background-color:beige ;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 20px solid beige;
+}
+
+.cardContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.card {
+    height: 300px;
+    width: 400px;
+    margin: 3rem 0 0;
+    background-image: url("background image.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(0.5);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cardText {
+    width: 40%;
+    font-family: sans-serif;
+    color: black;
+    letter-spacing: 1px;
+}
+
+.cardWrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.cardWrapper::before{
+    content: "";
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid white;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.cardWrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.cardWrapper p {
+    font-size: 0;
+    opacity: 0;
+    visibility: hidden;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.card:hover {
+    filter: unset;
+}
+
+.card:hover > .cardWrapper::before {
+    opacity: 1;
+    width: 350px;
+    height: 250px;
+}
+
+.card:hover > .cardWrapper p {
+    font-size: 14px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* FOOTER */
+.footer {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2C5364;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 800px) { 
+    .socialMedia {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        margin-top: 0;
+    }
+
+    .cardContainer {
+        flex-direction: column;
+    }
+
+    .container .cardContainer:nth-child(1),
+    .container .cardContainer:nth-child(3) {
+        flex-direction: column-reverse
+    }
+
+    .card {
+        height: 250px;
+        width: 250px;
+    }
+
+    .cardText {
+        width: 90%;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .card:hover > .cardWrapper::before {
+        height: 190px;
+        width: 190px;
+    }
+}
