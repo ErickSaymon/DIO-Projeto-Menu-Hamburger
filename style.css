@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
 
 body {
+    position: relative;
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -27,11 +28,13 @@ body {
 h1 {
     text-transform: uppercase;
     letter-spacing: 4px;
+    text-align: center;
 }
 
 h2 {
     text-transform: uppercase;
     letter-spacing: 4px;
+    text-align: center;
 }
 
 .socialMedia {
@@ -72,17 +75,17 @@ h2 {
 /* MENU HAMBURGER */
 
 .checkboxContainer {
-    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .checkbox {
-    height: 80px;
-    width: 80px;
+    display: none;
+    height: 10vh;
+    width: 10vw;
     position: absolute;
     top: 0;
-    right: 0px;
+    right: 10px;
     display: flex;
     justify-content: center;
     cursor: pointer;
@@ -91,27 +94,27 @@ h2 {
 }
 
 .checkbox .trace {
-    width: 35px;
-    height: 2px;
-    left: 15px;
+    display: none;
+    width: 8vw;
+    height: 0.5vh;
     background-color: white;
     position: absolute;
-    border-radius: 4px;
+    border-radius: 0.4vh;
     transition: 0.5s ease-in-out;
 }
 
 .checkbox .trace:nth-child(1) {
-    top: 26px;
+    top: 1.6vh;
     transform: rotate(0);
 }
 
 .checkbox .trace:nth-child(2) {
-    top: 41px;
+    top: 3.1vh;
     transform: rotate(0);
 }
 
 .checkbox .trace:nth-child(3) {
-    top: 56px;
+    top: 4.6vh;
     transform: rotate(0);
 }
 
@@ -122,86 +125,72 @@ h2 {
 /* MENU */
 
 .menu {
+    visibility: visible;
     position: absolute;
+    background: linear-gradient(-45deg, #0F2027, #203A43, #2C5364);
+    background-size: 300% 300%;
+    box-shadow: 0px 0px 15px 1px black;
     top: 0px;
     right: 0px;
-    background: black;
-    opacity: 20%;
-    height: 100%;
-    width: 0px;
-    z-index: -1;
+    display: flex;
+    opacity: 100%;
+    height: 8%;
+    max-height: 80px;
+    width: 100vw;
     transition: 400ms ease-in-out 0s;
+    animation: backgroundTransition 8s ease-in-out infinite;
 }
 
 .menuItens {
-    position: relative;
-    top: 50vh;
-    right: 0px;
-    width: 0;
-    height: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    top: 10vh;
     align-items: center;
-    z-index: 2;
-    opacity: 100;
-    visibility: visible;
-    transition: 400ms ease-in-out 0s;
 }
 
-.menuItens ul {
+.menuItensLista {
+    position: absolute;
     list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.menuItens ul li a {
-    margin: 10px 0;
+.menuItensLista li:nth-child(1) {
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    left: 33vw;
+    right: 50vw;
+}
+
+.menuItensLista li:nth-child(2) {
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    left: 48vw;
+    right: 50vw;
+}
+
+.menuItensLista li:nth-child(3) {
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    left: 63vw;
+    right: 50vw;
+}
+
+.menuItensLista li a {
+    margin: 0px 0;
     color: white;
     text-shadow: 2px 2px 2px black;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-size: 40px;
-    justify-content: center;
-}
-
-/* MENU ANIMATION */
-
-#toggle:checked + .checkbox{
-    right: 220px;
-}
-
-#toggle:checked + .checkbox .trace:nth-child(1) {
-    transform: rotate(45deg);
-    top: 41px;
-}
-
-#toggle:checked + .checkbox .trace:nth-child(2) {
-    width: 25px;
-    visibility: hidden;
-    opacity: 0;
-}
-
-#toggle:checked + .checkbox .trace:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 41px;
-}
-
-#toggle:checked + .checkbox{
-    background-color: transparent;
-}
-
-#toggle:checked ~ .menu {
-    visibility: visible;
-    background: black;
-    opacity: 20%;
-    box-shadow: 5px white;
-    width: 300px;
-    z-index: 1;
-}
-
-#toggle:checked ~ .menuItens {
-    visibility: visible;
-    opacity: 1;
-    width: 300px;
+    font-size: 3vw;
 }
 
 /* HOME */
@@ -313,11 +302,113 @@ h2 {
 /* RESPONSIVO */
 
 @media (max-width: 800px) { 
+    /* HEADER */
+
+    header .h1 {
+        font-size: 6vw;
+    }
+
+    header .h2 {
+        font-size: 5vw;
+    }
     .socialMedia {
         display: flex;
         flex-direction: column;
     }
 
+    /* MENU */
+
+    .menu {
+        position: absolute;
+        display: flex;
+        visibility: visible;
+        z-index: 1;
+        width: 0px;
+        height: 100vh;
+        max-height: none;
+        transition: 400ms ease-in-out 0.03s;
+    }
+
+    .menuItens {
+        position: relative;
+        top: 8vh;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+    }
+
+    .menuItensLista {
+        display: none;
+        position: relative;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-left: 13vw;
+        top: -8vh;
+        transition: 400ms ease-in-out 0.05s;
+    }
+
+    .menuItensLista li:nth-child(1),
+    .menuItensLista li:nth-child(2),
+    .menuItensLista li:nth-child(3)
+    {
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+
+    .menuItensLista li a {
+        font-size: 5vw;
+    }
+
+
+    .checkbox .trace {
+        display: flex;
+    }
+
+    #toggle:checked + .checkbox{
+        right: 40%;
+        
+    }
+    
+    #toggle:checked + .checkbox .trace:nth-child(1) {
+        transform: rotate(45deg);
+        top: 3.7vh;
+    }
+    
+    #toggle:checked + .checkbox .trace:nth-child(2) {
+        width: 25px;
+        visibility: hidden;
+        opacity: 0;
+    }
+    
+    #toggle:checked + .checkbox .trace:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 3.7vh;
+    }
+    
+    #toggle:checked + .checkbox{
+        background-color: transparent;
+    }
+    
+    #toggle:checked ~ .menu {
+        display: flex;
+        visibility: visible;
+        opacity: 100%;
+        width: 50%;
+        height: 100vh;
+        max-height: none;
+        z-index: 1;
+    }
+    
+    #toggle:checked ~ .menu nav ul {
+        visibility: visible;
+        display: flex;
+    }
+
+    /* CARDS */
     .container {
         margin-top: 0;
     }
